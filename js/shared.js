@@ -74,7 +74,7 @@ const GSC_SCREENSHOTS = {
     title: 'Roman Electric Co., Inc. — GSC Data',
     sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +105.3% · Clicks +10%',
     type: 'img',   // 'img' or 'iframe'
-    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/RomanElectricsPerformance.png?raw=true'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
+    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/RomanElectricsPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
   },
   'signarama': {
     title: 'Milwaukee Signarama — GSC Data',
