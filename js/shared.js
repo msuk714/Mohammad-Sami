@@ -88,36 +88,6 @@ const GSC_SCREENSHOTS = {
     type: 'img',
     url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/P2ezPayPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
   },
-  'Latitude': {
-    title: 'P2EzPay — GSC Data',
-    sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +954% · Clicks +800%',
-    type: 'img',
-    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/P2ezPayPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
-  },
-  'MR Fashions': {
-    title: 'P2EzPay — GSC Data',
-    sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +954% · Clicks +800%',
-    type: 'img',
-    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/P2ezPayPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
-  },
-  'RosaStores': {
-    title: 'P2EzPay — GSC Data',
-    sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +954% · Clicks +800%',
-    type: 'img',
-    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/P2ezPayPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
-  },
-  'Khanabadosh': {
-    title: 'P2EzPay — GSC Data',
-    sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +954% · Clicks +800%',
-    type: 'img',
-    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/P2ezPayPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
-  },
-  'BnC': {
-    title: 'P2EzPay — GSC Data',
-    sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +954% · Clicks +800%',
-    type: 'img',
-    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/P2ezPayPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
-  },
 };
 
 const WA_LINK = 'https://wa.me/923126540714';
