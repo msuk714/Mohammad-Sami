@@ -80,13 +80,13 @@ const GSC_SCREENSHOTS = {
     title: 'Milwaukee Signarama — GSC Data',
     sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +95.8% · Clicks +83.8%',
     type: 'img',
-    url: ''        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
+    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/MilwaukeeSignaramaPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
   },
   'p2ezpay': {
     title: 'P2EzPay — GSC Data',
     sub: 'Aug–Dec 2025 (Before) vs Dec 2025–Apr 2026 (After) · Impressions +954% · Clicks +800%',
     type: 'img',
-    url: ''        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
+    url: 'https://github.com/msuk714/Mohammad-Sami/blob/main/images/P2ezPayPerformance.png'        // ← PASTE YOUR GOOGLE DRIVE DIRECT URL HERE
   },
 };
 
