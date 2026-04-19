@@ -1,72 +1,1208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mohammad Sami Portfolio</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Mohammad Sami SEO Portfolio — Real GSC-verified case studies for Roman Electric, Milwaukee Signarama, P2EzPay, Blinds & Curtains Dubai, Latitude Resort and more."/>
+<title>Portfolio | Mohammad Sami — Senior SEO Strategist</title>
+<link rel="stylesheet" href="shared.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+.pg-hero { padding: 140px 2rem 60px; text-align: center; background: var(--surface); border-bottom: 1px solid var(--border); }
+.pg-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -.03em; margin-bottom: .75rem; }
+.pg-hero h1 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.pg-hero p { color: var(--light); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+/* Tabs */
+.tabs { display: flex; gap: .4rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.tab { padding: 8px 20px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--light); font-size: .83rem; font-weight: 600; cursor: pointer; transition: all .2s; font-family: inherit; }
+.tab:hover, .tab.active { background: rgba(232,184,75,.1); border-color: var(--accent); color: var(--accent); }
+.panel { display: none; }
+.panel.active { display: block; }
+/* Case card */
+.case { background: var(--card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; margin-bottom: 2rem; transition: border-color .25s; }
+.case:hover { border-color: rgba(232,184,75,.25); }
+.case-head { padding: 1.8rem 2rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; }
+.case-badge { display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 11px; border-radius: 100px; border: 1px solid; margin-bottom: .5rem; }
+.badge-us { background: rgba(62,207,110,.1); color: var(--green); border-color: rgba(62,207,110,.3); }
+.badge-pk { background: rgba(91,156,246,.1); color: var(--blue); border-color: rgba(91,156,246,.3); }
+.badge-ae { background: rgba(232,184,75,.1); color: var(--accent); border-color: rgba(232,184,75,.3); }
+.badge-int { background: rgba(167,139,250,.1); color: #a78bfa; border-color: rgba(167,139,250,.3); }
+.case-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .2rem; }
+.case-url { font-size: .8rem; color: var(--muted); }
+.case-period { font-size: .79rem; color: var(--light); margin-top: .2rem; }
+.kpis { display: flex; gap: .8rem; flex-wrap: wrap; }
+.case-body { padding: 2rem; display: grid; grid-template-columns: 1.15fr .85fr; gap: 2rem; }
+/* PSC */
+.psc { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+.psc-box { padding: 1.1rem 1.2rem; border-radius: 11px; border: 1px solid var(--border); }
+.psc-box.prob { border-color: rgba(240,96,96,.2); background: rgba(240,96,96,.04); }
+.psc-box.sol { border-color: rgba(91,156,246,.2); background: rgba(91,156,246,.04); }
+.psc-box.res { border-color: rgba(62,207,110,.2); background: rgba(62,207,110,.04); grid-column: 1/-1; }
+.psc-lbl { font-size: .67rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .4rem; }
+.prob .psc-lbl { color: var(--red); }
+.sol .psc-lbl { color: var(--blue); }
+.res .psc-lbl { color: var(--green); }
+.psc-text { font-size: .86rem; color: var(--light); line-height: 1.65; }
+/* Comparison table */
+.q-wrap { margin: 1.2rem 0; }
+.q-label { font-size: .68rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .75rem; }
+.q-grid { display: grid; grid-template-columns: 1fr 40px 1fr; gap: .6rem; align-items: stretch; }
+.q-panel { border-radius: 11px; padding: 1rem 1.2rem; }
+.q-panel.before { border: 1px solid rgba(240,96,96,.25); background: rgba(240,96,96,.05); }
+.q-panel.after { border: 1px solid rgba(62,207,110,.25); background: rgba(62,207,110,.05); }
+.q-period { font-size: .64rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .5rem; }
+.q-panel.before .q-period { color: var(--red); }
+.q-panel.after .q-period { color: var(--green); }
+.q-row { display: flex; justify-content: space-between; align-items: center; font-size: .83rem; margin-bottom: .3rem; }
+.q-row:last-child { margin-bottom: 0; }
+.q-metric { color: var(--muted); }
+.q-val { font-weight: 700; }
+.q-panel.before .q-val { color: var(--red); }
+.q-panel.after .q-val { color: var(--green); }
+.q-mid { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; }
+.q-arrow { font-size: 1.2rem; color: var(--accent); }
+.q-pct { font-size: .7rem; font-weight: 800; color: var(--green); background: rgba(62,207,110,.12); border: 1px solid rgba(62,207,110,.25); border-radius: 6px; padding: 3px 7px; text-align: center; white-space: nowrap; }
+/* Analysis */
+.analysis { margin-top: 1rem; background: rgba(232,184,75,.04); border: 1px solid rgba(232,184,75,.14); border-radius: 11px; padding: 1.1rem 1.2rem; }
+.analysis-title { font-size: .67rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .6rem; }
+.analysis-point { font-size: .84rem; color: var(--light); margin-bottom: .55rem; padding-left: .8rem; border-left: 2px solid rgba(232,184,75,.4); line-height: 1.6; }
+.analysis-point:last-child { margin-bottom: 0; }
+.analysis-point strong { color: var(--text); }
+/* Chart */
+.chart-area { }
+.chart-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .6rem; display: flex; align-items: center; gap: 6px; }
+.chart-source { font-size: .6rem; background: rgba(232,184,75,.1); border: 1px solid rgba(232,184,75,.2); color: var(--accent); padding: 1px 7px; border-radius: 100px; }
+.chart-wrap { position: relative; height: 200px; }
+.chart-wrap.sm { height: 130px; }
+/* KW table wrapper */
+.kw-wrap { overflow-x: auto; margin-top: .8rem; }
+@media(max-width:900px) { .case-body { grid-template-columns: 1fr; } .psc { grid-template-columns: 1fr; } .psc-box.res { grid-column: 1; } .q-grid { grid-template-columns: 1fr; } .q-mid { flex-direction: row; } .case-head { padding: 1.3rem 1.5rem; } .case-body { padding: 1.3rem 1.5rem; } }
+</style>
 </head>
 <body>
+<nav>
+  <a href="index.html" class="logo">
+    <svg viewBox="0 0 40 40" fill="none"><defs><linearGradient id="g1" x1="0" y1="40" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#c9951e"/><stop offset="100%" stop-color="#e8b84b"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="#181922"/><rect x=".5" y=".5" width="39" height="39" rx="9.5" stroke="url(#g1)" stroke-opacity=".5"/><path d="M7 27V13l5 7 5-7v14" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M21 21c0-1.4 1.1-2.4 2.8-2.4s2.7.9 2.7 2.4-1.1 1.9-2.7 2.4-2.8 1.1-2.8 2.4 1.1 2.4 2.8 2.4 2.7-1 2.7-2.4" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" fill="none"/><polyline points="29,11 34,11 34,16" stroke="url(#g1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="29" y1="11" x2="34" y2="16" stroke="url(#g1)" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <div class="logo-text">MSUK · <span>SEO</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/923126540714" class="nav-cta">Hire Me</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
 
-<h1>Welcome to My Portfolio</h1>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mohammad Sami Portfolio</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background: #f5f5f5;
-        }
-
-        h1 {
-            margin-top: 20px;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .gallery img {
-            width: 250px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            transition: 0.3s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-    </style>
-
-</head>
-<body>
-
-<h1>My Portfolio</h1>
-<h2>My Projects</h2>
-
-<div class="gallery">
-
-    <img src="images/InterirofilmPerformance.png">
-    <img src="images/BlindsandCurtainsPerformance.png">
-    <img src="images/TwoguyzPerformance.png">
-    <img src="images/LatitudePerformance.png">
-    <img src="images/KhanabadoshPerformance.png">
-    <img src="images/MRFashionPerformance.png">
-    <img src="images/PinkyFurniturePerformance.png">
-    <img src="images/RosaStoresPerformance.png">
-    <img src="images/P2ezPayPerformance.png">
-    <img src="images/MilwaukeeSignaramaPerformance.png">
-    <img src="images/RomanElectricsPerformance.png">
-
+<div class="pg-hero">
+  <div class="section-tag" style="justify-content:center;">Proven SEO Results with Transparent And Verified Data</div>
+  <h1>Real<span>SEO Case Studies</span></h1>
+  <p>Every result you see is backed by real performance data from Google Search Console, Ahrefs, and SEMrush — no estimates, no assumptions.</p>
 </div>
 
-</body>
-</html>
+<section>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" data-tab="current">🇺🇸 Current Projects</button>
+      <button class="tab" data-tab="recent">🌏 Recent Projects</button>
+      <button class="tab" data-tab="previous">📊 Previous Projects</button>
+      <button class="tab" data-tab="all">📋 All Projects</button>
+    </div>
 
+    <!-- ══════════════ CURRENT PROJECTS ══════════════ -->
+    <div class="panel active" id="panel-current">
+
+      <!-- ROMAN ELECTRIC -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 USA · Commercial Electric Services · Milwaukee, WI</span>
+            <div class="case-title">Roman Electric Co., Inc.</div>
+            <div class="case-url">romanelectric.com</div>
+            <div class="case-period">Dec 2025 – Apr 2026 · 4-Month Intensive · Active Campaign</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">+105.3%</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">+10%</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi neutral"><div class="kpi-val">171K</div><div class="kpi-lbl">Total Impr.</div></div>
+            <div class="kpi neutral"><div class="kpi-val">1.86K</div><div class="kpi-lbl">Total Clicks</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="psc">
+              <div class="psc-box prob"><div class="psc-lbl">Problem</div><div class="psc-text">Established electrician over-reliant on branded searches. No visibility for high-intent commercial service queries across Milwaukee metro area.</div></div>
+              <div class="psc-box sol"><div class="psc-lbl">Solution</div><div class="psc-text">Content silo implementation (Electrical, Plumbing, HVAC). Core Web Vitals overhaul, local business schema, and "near me" query optimization.</div></div>
+              <div class="psc-box res"><div class="psc-lbl">Results — GSC Verified</div><div class="psc-text">Impressions grew from 83.3K → 171K (+105.3%). Clicks grew from 1.69K → 1.86K (+10%). Site now ranks for thousands of high-volume commercial service keywords it never appeared for before.</div></div>
+            </div>
+            <div class="q-wrap">
+              <div class="q-label">GSC Comparison — Aug–Dec 2025 vs Dec 2025–Apr 2026</div>
+              <div class="q-grid">
+                <div class="q-panel before">
+                  <div class="q-period">Aug–Dec 2025 (Before)</div>
+                  <div class="q-row"><span class="q-metric">Total Clicks</span><span class="q-val">1,690</span></div>
+                  <div class="q-row"><span class="q-metric">Impressions</span><span class="q-val">83,300</span></div>
+                  <div class="q-row"><span class="q-metric">Avg Position</span><span class="q-val">15.8</span></div>
+                  <div class="q-row"><span class="q-metric">Avg CTR</span><span class="q-val">2.0%</span></div>
+                </div>
+                <div class="q-mid"><div class="q-arrow">→</div><div class="q-pct">+105%<br/>Impr.</div></div>
+                <div class="q-panel after">
+                  <div class="q-period">Dec 2025–Apr 2026 (After)</div>
+                  <div class="q-row"><span class="q-metric">Total Clicks</span><span class="q-val">1,860</span></div>
+                  <div class="q-row"><span class="q-metric">Impressions</span><span class="q-val">171,000</span></div>
+                  <div class="q-row"><span class="q-metric">Avg Position</span><span class="q-val">20.4</span></div>
+                  <div class="q-row"><span class="q-metric">Avg CTR</span><span class="q-val">1.1%</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="analysis">
+              <div class="analysis-title">🧠 Strategist's Analysis — Why the metrics shifted</div>
+              <div class="analysis-point"><strong>Why Avg Position moved from 15.8 → 20.4:</strong> By targeting high-volume terms like "electrician near me" we entered SERPs at positions 15–30 initially. This mathematically lowers the average while doubling the brand's total visibility footprint.</div>
+              <div class="analysis-point"><strong>Why CTR shifted from 2% → 1.1%:</strong> Moving from branded to discovery traffic is expected. 1.1% of 171K = 1,880 clicks vs 2% of 83K = 1,660 clicks. We're getting <em>more</em> clicks in absolute terms while reaching entirely new audiences.</div>
+            </div>
+            <button class="gsc-btn" onclick="openGSC('roman')" style="margin-top:1rem;">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3 9 21 9"/><polyline points="9 21 9 9"/></svg>
+              View GSC Screenshot — Roman Electric
+            </button>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Impressions: Before vs After <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-roman-imp"></canvas></div>
+            <div class="chart-label" style="margin-top:.9rem;">Monthly Clicks <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap sm"><canvas id="c-roman-clicks"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MILWAUKEE SIGNARAMA -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 USA · Milwaukee Signs · Milwaukee, WI</span>
+            <div class="case-title">Milwaukee Signarama</div>
+            <div class="case-url">milwaukee-signs.com</div>
+            <div class="case-period">Dec 2025 – Apr 2026 · 4-Month Intensive · Active Campaign</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">+95.8%</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">+83.8%</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi neutral"><div class="kpi-val">122K</div><div class="kpi-lbl">Total Impr.</div></div>
+            <div class="kpi neutral"><div class="kpi-val">410</div><div class="kpi-lbl">Total Clicks</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="psc">
+              <div class="psc-box prob"><div class="psc-lbl">Problem</div><div class="psc-text">Franchise sign shop with near-zero organic presence. Visibility limited entirely to branded searches for "Milwaukee Signs."</div></div>
+              <div class="psc-box sol"><div class="psc-lbl">Solution</div><div class="psc-text">Geo-targeted landing pages, internal link restructuring for link equity flow, and full metadata overhaul aligned with local commercial intent.</div></div>
+              <div class="psc-box res"><div class="psc-lbl">Results — GSC Verified</div><div class="psc-text">Impressions nearly doubled from 62.3K → 122K (+95.8%). Clicks grew from 223 → 410 (+83.8%). Site now competes for broad commercial sign queries it never ranked for before.</div></div>
+            </div>
+            <div class="q-wrap">
+              <div class="q-label">GSC Comparison — Aug–Dec 2025 vs Dec 2025–Apr 2026</div>
+              <div class="q-grid">
+                <div class="q-panel before">
+                  <div class="q-period">Aug–Dec 2025 (Before)</div>
+                  <div class="q-row"><span class="q-metric">Total Clicks</span><span class="q-val">223</span></div>
+                  <div class="q-row"><span class="q-metric">Impressions</span><span class="q-val">62,300</span></div>
+                  <div class="q-row"><span class="q-metric">Avg Position</span><span class="q-val">29.2</span></div>
+                  <div class="q-row"><span class="q-metric">Avg CTR</span><span class="q-val">0.4%</span></div>
+                </div>
+                <div class="q-mid"><div class="q-arrow">→</div><div class="q-pct">+96%<br/>Impr.</div></div>
+                <div class="q-panel after">
+                  <div class="q-period">Dec 2025–Apr 2026 (After)</div>
+                  <div class="q-row"><span class="q-metric">Total Clicks</span><span class="q-val">410</span></div>
+                  <div class="q-row"><span class="q-metric">Impressions</span><span class="q-val">122,000</span></div>
+                  <div class="q-row"><span class="q-metric">Avg Position</span><span class="q-val">30.2</span></div>
+                  <div class="q-row"><span class="q-metric">Avg CTR</span><span class="q-val">0.3%</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="analysis">
+              <div class="analysis-title">🧠 Strategist's Analysis — Why the metrics shifted</div>
+              <div class="analysis-point"><strong>Why Avg Position moved from 29.2 → 30.2:</strong> "New Keyword Effect." The site pushed into hundreds of new broad queries. A site ranking #1 for its brand but #50 for "Custom Business Signs" will naturally see a slightly lower average — while gaining massive new reach.</div>
+              <div class="analysis-point"><strong>Why CTR shifted from 0.4% → 0.3%:</strong> Discovery traffic has lower CTR than branded. 0.3% of 122K = 366 clicks vs 0.4% of 62K = 248 clicks. That's 47% more actual clicks. We traded marginal CTR efficiency for 84% more real visitors.</div>
+            </div>
+            <button class="gsc-btn" onclick="openGSC('signarama')" style="margin-top:1rem;">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3 9 21 9"/><polyline points="9 21 9 9"/></svg>
+              View GSC Screenshot — Milwaukee Signarama
+            </button>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Impressions: Before vs After <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-sig-imp"></canvas></div>
+            <div class="chart-label" style="margin-top:.9rem;">Monthly Clicks <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap sm"><canvas id="c-sig-clicks"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P2EZPAY -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 USA · SaaS / FinTech · Payment Processing</span>
+            <div class="case-title">P2EzPay — FinTech Payment Solutions</div>
+            <div class="case-url">p2ezpay.com</div>
+            <div class="case-period">Dec 2025 – Apr 2026 · 4-Month Intensive · Active Campaign</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">+954%</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">+800%</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">+12.1</div><div class="kpi-lbl">Position Spots</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="psc">
+              <div class="psc-box prob"><div class="psc-lbl">Problem</div><div class="psc-text">SaaS startup with negligible organic traction. Crawl budget issues, schema errors, zero content authority competing against Stripe, PayPal, Square.</div></div>
+              <div class="psc-box sol"><div class="psc-lbl">Solution</div><div class="psc-text">Technical audit resolving crawl and schema errors. High-intent content strategy targeting zero-volume keywords. Cluster-based content on "Payment Security" and "Global Transactions" for E-E-A-T signals.</div></div>
+              <div class="psc-box res"><div class="psc-lbl">Results — GSC Verified</div><div class="psc-text">Impressions grew 954%: 1,090 → 11,500. Clicks grew 800%: 11 → 99. Average position improved from 41.6 → 29.5, a gain of 12.1 ranking spots. Fastest growth curve in portfolio — built entirely from scratch.</div></div>
+            </div>
+            <div class="q-wrap">
+              <div class="q-label">GSC Comparison — Aug–Dec 2025 vs Dec 2025–Apr 2026</div>
+              <div class="q-grid">
+                <div class="q-panel before">
+                  <div class="q-period">Aug–Dec 2025 (Before)</div>
+                  <div class="q-row"><span class="q-metric">Total Clicks</span><span class="q-val">11</span></div>
+                  <div class="q-row"><span class="q-metric">Impressions</span><span class="q-val">1,090</span></div>
+                  <div class="q-row"><span class="q-metric">Avg Position</span><span class="q-val">41.6</span></div>
+                </div>
+                <div class="q-mid"><div class="q-arrow">→</div><div class="q-pct">+800%<br/>Clicks</div></div>
+                <div class="q-panel after">
+                  <div class="q-period">Dec 2025–Apr 2026 (After)</div>
+                  <div class="q-row"><span class="q-metric">Total Clicks</span><span class="q-val">99</span></div>
+                  <div class="q-row"><span class="q-metric">Impressions</span><span class="q-val">11,500</span></div>
+                  <div class="q-row"><span class="q-metric">Avg Position</span><span class="q-val">29.5 (+12.1)</span></div>
+                </div>
+              </div>
+            </div>
+            <button class="gsc-btn" onclick="openGSC('p2ezpay')" style="margin-top:1rem;">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3 9 21 9"/><polyline points="9 21 9 9"/></svg>
+              View GSC Screenshot — P2EzPay
+            </button>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Impressions Growth <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-p2-imp"></canvas></div>
+            <div class="chart-label" style="margin-top:.9rem;">Clicks Growth <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap sm"><canvas id="c-p2-clicks"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /panel-current -->
+
+    <!-- ══════════════ RECENT PROJECTS ══════════════ -->
+    <div class="panel" id="panel-recent">
+
+      <!-- ROSA CLOTHING -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 E-commerce · Pakistan</span>
+            <div class="case-title">Rosa Clothing &amp; Apparel Store</div>
+            <div class="case-url">rosastores.com · March–August 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">2.69K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">37.5K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">7.2%</div><div class="kpi-lbl">CTR</div></div>
+            <div class="kpi neutral"><div class="kpi-val">8.6</div><div class="kpi-lbl">Avg Position</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <p style="color:var(--light);font-size:.9rem;margin-bottom:1rem;">Post-revamp SEO after full site redesign. Achieved <strong style="color:var(--accent);">10 out of 11 keywords at #1 rank</strong> within 6 months. 7.2% CTR is 2–3× the e-commerce industry average of 2–3%.</p>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Rosa boutique</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>Rosa clothing</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>3</td><td>Rosa stores</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>4</td><td>Rosa clothes</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>5</td><td>Rosa clothing store</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>6</td><td>Rosa clothing wholesale</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>7</td><td>Rosa fashion store</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>8</td><td>Rosa wear</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>9</td><td>Rosa clothing dress</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>10</td><td>Rosa outfits</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>11</td><td>Rosa collection</td><td><span class="rb rb-2">2</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Clicks &amp; Impressions ÷10 <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-rosa"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PINKY FURNITURE -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Furniture · UAE</span>
+            <div class="case-title">Pinky Furniture UAE</div>
+            <div class="case-url">pinkyfurnitureuae.com · March–July 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">2.07K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">194K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">1.1%</div><div class="kpi-lbl">CTR</div></div>
+            <div class="kpi neutral"><div class="kpi-val">31.3</div><div class="kpi-lbl">Avg Position</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Pinky furniture</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>Pinky furniture dubai</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>3</td><td>Solid wood furniture dubai</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>4</td><td>Indian furniture dubai</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>5</td><td>Antique cabinet</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>6</td><td>Dining table dubai</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>7</td><td>Wood table</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>8</td><td>Rattan furniture dubai</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>9</td><td>Solid wood dining table</td><td><span class="rb rb-3">4</span></td></tr>
+              <tr><td>10</td><td>Furniture store in Sharjah</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>11</td><td>Chest of drawers</td><td><span class="rb rb-n">12</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Impressions <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-pinky"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MR FASHIONS -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 Fashion Bags · Pakistan</span>
+            <div class="case-title">MR Fashions</div>
+            <div class="case-url">mrfashion.com.pk · March–July 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">1.02K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">14K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">7.3%</div><div class="kpi-lbl">CTR</div></div>
+            <div class="kpi neutral"><div class="kpi-val">18.8</div><div class="kpi-lbl">Avg Position</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>MR fashion bags</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>Oversized shoulder bags</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>3</td><td>MR Handbags</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>4</td><td>D shape bag</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>5</td><td>Tassel bags</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>6</td><td>Mr bags</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>7</td><td>Box clutch black</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>8</td><td>Stylish bags 2025</td><td><span class="rb rb-3">4</span></td></tr>
+              <tr><td>9</td><td>Fashion bag</td><td><span class="rb rb-3">7</span></td></tr>
+              <tr><td>10</td><td>Jute tote bag</td><td><span class="rb rb-3">7</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Clicks Growth <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-mrfashion"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KHANABADOSH GLAMPS -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 Glamping / Tourism · Pakistan</span>
+            <div class="case-title">Khanabadosh Glamps</div>
+            <div class="case-url">khanabadosh.pk · March–June 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">3.11K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">34.4K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">9%</div><div class="kpi-lbl">CTR</div></div>
+            <div class="kpi neutral"><div class="kpi-val">4.0</div><div class="kpi-lbl">Avg Position</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <p style="color:var(--light);font-size:.9rem;margin-bottom:1rem;">New glamping brand, zero digital presence at start. <strong style="color:var(--accent);">9% CTR is 3–4× the tourism industry average.</strong> Achieved top-5 positions from standing start within 4 months.</p>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Khanabadosh pods</td><td><span class="rb rb-3">4</span></td></tr>
+              <tr><td>2</td><td>Khanabadosh glamps</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>3</td><td>Khanabadosh glamps murree</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>4</td><td>Khanabadosh resort Kumrat</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>5</td><td>Khanabadosh huts murree</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>6</td><td>Khanabadosh glamps Kumrat</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>7</td><td>Kumrat glamps</td><td><span class="rb rb-3">6</span></td></tr>
+              <tr><td>8</td><td>Glamps in murree</td><td><span class="rb rb-3">6</span></td></tr>
+              <tr><td>9</td><td>Khanabadosh hotel Kumrat</td><td><span class="rb rb-3">6</span></td></tr>
+              <tr><td>10</td><td>Murree glamps</td><td><span class="rb rb-n">16</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Clicks Growth <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-glamps"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LATITUDE RESORT -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 Resort · Pakistan</span>
+            <div class="case-title">Latitude Resort Kumrat</div>
+            <div class="case-url">latituderesorts.pk · December 2024 – June 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">5.54K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">115K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">4.8%</div><div class="kpi-lbl">CTR</div></div>
+            <div class="kpi up"><div class="kpi-val">11</div><div class="kpi-lbl">Keywords #1</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <p style="color:var(--light);font-size:.9rem;margin-bottom:1rem;"><strong style="color:var(--accent);">11 out of 12 tracked keywords ranked #1.</strong> Dominated the Kumrat Valley resort niche from a brand-new site. 4.8% CTR well above the 2–3% hospitality benchmark.</p>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Latitude Resort</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>Latitude Resort Kumrat</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>3</td><td>Latitude Kumrat</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>4</td><td>Latitude Resort Kumrat Valley</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>5</td><td>Latitude Hotel Kumrat</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>6</td><td>Kumrat Valley Latitude Resort</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>7</td><td>Kumrat Valley Resort</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>8</td><td>Latitude Resort Kumrat Valley Price</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>9</td><td>Kumrat Resorts</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>10</td><td>Latitude Kumrat Valley</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>11</td><td>Resorts in Kumrat Valley</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>12</td><td>Latitude Resort Prices per Night</td><td><span class="rb rb-2">3</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Clicks (Dec 2024 – Jun 2025) <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-latitude"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLINDS & CURTAINS DUBAI -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Blinds &amp; Curtains · UAE</span>
+            <div class="case-title">Blinds and Curtains Dubai</div>
+            <div class="case-url">blindsandcurtains.ae · Jun 2024 – Apr 2025 · WordPress → Custom Migration</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">11.7K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">1.09M</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">1.1%</div><div class="kpi-lbl">CTR</div></div>
+            <div class="kpi neutral"><div class="kpi-val">22.8</div><div class="kpi-lbl">Avg Position</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <p style="color:var(--light);font-size:.9rem;margin-bottom:1rem;"><strong style="color:var(--accent);">1.09 million impressions</strong> — highest in portfolio. Successfully managed WordPress → custom platform migration in January 2025 with full traffic preservation. No major drops despite the platform change.</p>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Dubai curtains and blinds</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>2</td><td>Motorised curtains</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>3</td><td>Dubai blinds</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>4</td><td>Conservatory blinds</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>5</td><td>Full height shutters</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>6</td><td>Office curtains</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>7</td><td>Duplex blinds dubai</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>8</td><td>Outdoor blinds dubai</td><td><span class="rb rb-3">4</span></td></tr>
+              <tr><td>9</td><td>Blackout roller blinds</td><td><span class="rb rb-3">6</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Impressions (Jun 2024 – Apr 2025) <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-blinds"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TWO GUYS -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Home Furnishing · UAE</span>
+            <div class="case-title">Two Guys Home Furnishing Dubai</div>
+            <div class="case-url">twoguys.ae · Jun 2024 – April 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi neutral"><div class="kpi-val">#1</div><div class="kpi-lbl">Sintered Stone</div></div>
+            <div class="kpi neutral"><div class="kpi-val">218K</div><div class="kpi-lbl">Impressions</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Sintered stone flooring</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>Linen curtains dubai</td><td><span class="rb rb-3">9</span></td></tr>
+              <tr><td>3</td><td>Home Furnishing</td><td><span class="rb rb-n">11</span></td></tr>
+              <tr><td>4</td><td>Shutters in Dubai</td><td><span class="rb rb-n">15</span></td></tr>
+              <tr><td>5</td><td>LVT flooring UAE</td><td><span class="rb rb-n">28</span></td></tr>
+              <tr><td>6</td><td>Blackout curtains dubai</td><td><span class="rb rb-n">29</span></td></tr>
+              <tr><td>7</td><td>Window Curtains Dubai</td><td><span class="rb rb-n">30</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Impressions Growth <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-twoguys"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERIOR FILMS -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Interior Design · UAE</span>
+            <div class="case-title">Interior Films Dubai</div>
+            <div class="case-url">interiorfilm.ae · Jun 2024 – Apr 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">357</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">34.6K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">6</div><div class="kpi-lbl">Keywords #1</div></div>
+            <div class="kpi neutral"><div class="kpi-val">1%</div><div class="kpi-lbl">CTR</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Interior Vinyl Film</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>Pure Gold Vinyl</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>3</td><td>Cement Grey Vinyl</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>4</td><td>Offwhite Fabric Vinyl</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>5</td><td>White Vinyl Film</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>6</td><td>Interior Film Accessories</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>7</td><td>Wood vinyl wrap</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>8</td><td>Grey Wood Vinyl</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>9</td><td>Metallic Vinyl</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>10</td><td>Marble Wrap</td><td><span class="rb rb-2">3</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Monthly Impressions <span class="chart-source">GSC</span></div>
+            <div class="chart-wrap"><canvas id="c-interior"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /panel-recent -->
+
+    <!-- ══════════════ PREVIOUS PROJECTS ══════════════ -->
+    <div class="panel" id="panel-previous">
+
+      <!-- NATURAL MOTION -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 Health &amp; Wellness · USA</span>
+            <div class="case-title">Natural Motion Myopractics</div>
+            <div class="case-url">getnaturalmotion.com · Feb 2024 – Jun 2024</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">3</div><div class="kpi-lbl">Keywords #1</div></div>
+            <div class="kpi neutral"><div class="kpi-val">~800</div><div class="kpi-lbl">Monthly Traffic</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Myopractic vs chiropractic</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>What is myopractic therapy</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>3</td><td>Natural motion myopractics</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>4</td><td>What is a myopractor</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>5</td><td>What is body alignment</td><td><span class="rb rb-3">8</span></td></tr>
+              <tr><td>6</td><td>Proper body alignment</td><td><span class="rb rb-n">16</span></td></tr>
+              <tr><td>7</td><td>Natural pain relief near me</td><td><span class="rb rb-n">17</span></td></tr>
+              <tr><td>8</td><td>Tension releasing exercises</td><td><span class="rb rb-n">22</span></td></tr>
+              <tr><td>9</td><td>Motion pain relief</td><td><span class="rb rb-n">29</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Organic Traffic Growth · Ahrefs</div>
+            <div class="chart-wrap"><canvas id="c-motion"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMAZIONE ITALY -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-int">🇮🇹 Education · Italy</span>
+            <div class="case-title">Formazione Online e Università Telematica</div>
+            <div class="case-url">fiorerosalba.com · May 2023 – January 2024</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">5</div><div class="kpi-lbl">Keywords #1</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword (Italian)</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Rosalba fiore</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>2</td><td>Corsi elettricista per adulti</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>3</td><td>Corsi per mastri birrai</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>4</td><td>Corso di tappezzeria</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>5</td><td>Segreteria direzionale</td><td><span class="rb rb-1">1</span></td></tr>
+              <tr><td>6</td><td>Corso segretaria amministrativa</td><td><span class="rb rb-2">3</span></td></tr>
+              <tr><td>7</td><td>Corso segretaria online riconosciuto</td><td><span class="rb rb-3">4</span></td></tr>
+              <tr><td>8</td><td>Corso da mastro birraio</td><td><span class="rb rb-2">2</span></td></tr>
+              <tr><td>9</td><td>Corso segretaria studio medico</td><td><span class="rb rb-3">6</span></td></tr>
+              <tr><td>10</td><td>Corso per segretaria studio medico</td><td><span class="rb rb-3">7</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Traffic Growth · Ahrefs</div>
+            <div class="chart-wrap"><canvas id="c-formazione"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROGU GROUP -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-int">🇲🇽 E-commerce · Mexico</span>
+            <div class="case-title">Rogu Group | Welding Machines &amp; Work Boots</div>
+            <div class="case-url">gruporogu.com.mx · August 2023 – February 2024</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">3,454</div><div class="kpi-lbl">Monthly Organic</div></div>
+            <div class="kpi neutral"><div class="kpi-val">#5</div><div class="kpi-lbl">Botas soldador</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword (Spanish)</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Botas para soldador</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>2</td><td>Botas de soldador</td><td><span class="rb rb-3">6</span></td></tr>
+              <tr><td>3</td><td>Botas soldador</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>4</td><td>Botas de trabajo</td><td><span class="rb rb-n">29</span></td></tr>
+              <tr><td>5</td><td>Soldadoras miller microalambre</td><td><span class="rb rb-n">40</span></td></tr>
+              <tr><td>6</td><td>Mig lincoln</td><td><span class="rb rb-n">31</span></td></tr>
+              <tr><td>7</td><td>Las mejores botas de trabajo</td><td><span class="rb rb-n">43</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Organic Traffic Growth · SEMrush</div>
+            <div class="chart-wrap"><canvas id="c-rogu"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAWS & RELAX -->
+      <div class="case reveal">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Pet Store · UAE</span>
+            <div class="case-title">Paws &amp; Relax | Online Pet Store</div>
+            <div class="case-url">pawsandrelax.ae · January 2021 – June 2022</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">1,167</div><div class="kpi-lbl">Monthly Organic</div></div>
+            <div class="kpi neutral"><div class="kpi-val">7</div><div class="kpi-lbl">Page 1 Keywords</div></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <div class="kw-wrap"><table class="data-table"><thead><tr><th>#</th><th>Keyword</th><th>Rank</th></tr></thead><tbody>
+              <tr><td>1</td><td>Cat Tree Dubai</td><td><span class="rb rb-3">4</span></td></tr>
+              <tr><td>2</td><td>Pet store near me</td><td><span class="rb rb-3">5</span></td></tr>
+              <tr><td>3</td><td>Pet shop near me</td><td><span class="rb rb-3">6</span></td></tr>
+              <tr><td>4</td><td>Pet store</td><td><span class="rb rb-3">7</span></td></tr>
+              <tr><td>5</td><td>Dog shop near me</td><td><span class="rb rb-3">7</span></td></tr>
+              <tr><td>6</td><td>Cat trees</td><td><span class="rb rb-3">9</span></td></tr>
+              <tr><td>7</td><td>Royal canin dog food</td><td><span class="rb rb-3">8</span></td></tr>
+              <tr><td>8</td><td>Pet shop</td><td><span class="rb rb-3">8</span></td></tr>
+              <tr><td>9</td><td>Cat lion cut</td><td><span class="rb rb-n">13</span></td></tr>
+              <tr><td>10</td><td>Cat Litter Trays</td><td><span class="rb rb-n">13</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-label">Organic Traffic Growth · Ahrefs</div>
+            <div class="chart-wrap"><canvas id="c-paws"></canvas></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /panel-previous -->
+
+    <!-- ══════════════ ALL PROJECTS (sorted by period) ══════════════ -->
+    <div class="panel" id="panel-all">
+
+      <!-- Period sort indicator -->
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--muted);">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);"></span>
+        All 15 projects sorted by campaign period — most recent first
+      </div>
+
+      <!-- ── 1. Roman Electric (Dec 2025–Apr 2026) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--green);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 USA · Commercial Electric Services</span>
+            <div class="case-title">Roman Electric Co., Inc.</div>
+            <div class="case-url">romanelectric.com</div>
+            <div class="case-period">📅 Dec 2025 – Apr 2026 · Active · GSC Verified</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">+105%</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">171K</div><div class="kpi-lbl">Total Impr.</div></div>
+            <div class="kpi up"><div class="kpi-val">1.86K</div><div class="kpi-lbl">Total Clicks</div></div>
+          </div>
+        </div>
+        <div style="padding:1.2rem 2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <p style="color:var(--light);font-size:.88rem;max-width:620px;">Impressions doubled (83.3K→171K) in 4 months. Content silos, CWV overhaul, local business schema, and "near me" optimization.</p>
+          <button class="gsc-btn" onclick="openGSC('roman')">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3 9 21 9"/><polyline points="9 21 9 9"/></svg>
+            View GSC Screenshot
+          </button>
+        </div>
+      </div>
+
+      <!-- ── 2. Milwaukee Signarama (Dec 2025–Apr 2026) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--green);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 USA · Milwaukee Signs</span>
+            <div class="case-title">Milwaukee Signarama</div>
+            <div class="case-url">milwaukee-signs.com</div>
+            <div class="case-period">📅 Dec 2025 – Apr 2026 · Active · GSC Verified</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">+96%</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">122K</div><div class="kpi-lbl">Total Impr.</div></div>
+            <div class="kpi up"><div class="kpi-val">410</div><div class="kpi-lbl">Total Clicks</div></div>
+          </div>
+        </div>
+        <div style="padding:1.2rem 2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <p style="color:var(--light);font-size:.88rem;max-width:620px;">Impressions grew 62.3K→122K (+95.8%). Clicks grew 223→410 (+83.8%) with geo-targeted pages and metadata overhaul.</p>
+          <button class="gsc-btn" onclick="openGSC('signarama')">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3 9 21 9"/><polyline points="9 21 9 9"/></svg>
+            View GSC Screenshot
+          </button>
+        </div>
+      </div>
+
+      <!-- ── 3. P2EzPay (Dec 2025–Apr 2026) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--green);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 USA · SaaS / FinTech</span>
+            <div class="case-title">P2EzPay — Payment Solutions</div>
+            <div class="case-url">p2ezpay.com</div>
+            <div class="case-period">📅 Dec 2025 – Apr 2026 · Active · GSC Verified</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">+954%</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">+800%</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">+12.1</div><div class="kpi-lbl">Position Spots</div></div>
+          </div>
+        </div>
+        <div style="padding:1.2rem 2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <p style="color:var(--light);font-size:.88rem;max-width:620px;">From negligible to 11.5K impressions in 4 months. Technical overhaul + E-E-A-T content strategy. Fastest growth in portfolio.</p>
+          <button class="gsc-btn" onclick="openGSC('p2ezpay')">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3 9 21 9"/><polyline points="9 21 9 9"/></svg>
+            View GSC Screenshot
+          </button>
+        </div>
+      </div>
+
+      <!-- ── 4. Rosa Clothing (Mar–Aug 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--blue);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 E-commerce · Pakistan</span>
+            <div class="case-title">Rosa Clothing &amp; Apparel Store</div>
+            <div class="case-url">rosastores.com</div>
+            <div class="case-period">📅 March 2025 – August 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">2.69K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">37.5K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">7.2%</div><div class="kpi-lbl">CTR</div></div>
+            <div class="kpi up"><div class="kpi-val">10 #1</div><div class="kpi-lbl">Keywords</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">Post-revamp SEO. 10/11 keywords ranked #1. CTR 7.2% is 2–3× e-commerce industry average.</p></div>
+      </div>
+
+      <!-- ── 5. Pinky Furniture (Mar–Jul 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--blue);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Furniture · UAE</span>
+            <div class="case-title">Pinky Furniture UAE</div>
+            <div class="case-url">pinkyfurnitureuae.com</div>
+            <div class="case-period">📅 March 2025 – July 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">2.07K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">194K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">6 #1</div><div class="kpi-lbl">Keywords</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">6 core UAE furniture keywords ranked #1. 194K impressions — highest in UAE furniture category.</p></div>
+      </div>
+
+      <!-- ── 6. MR Fashions (Mar–Jul 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--blue);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 Fashion Bags · Pakistan</span>
+            <div class="case-title">MR Fashions</div>
+            <div class="case-url">mrfashion.com.pk</div>
+            <div class="case-period">📅 March 2025 – July 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">1.02K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">14K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">7.3%</div><div class="kpi-lbl">CTR</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">#1 for "MR fashion bags" and "oversized shoulder bags". 7.3% CTR outstanding for Pakistan fashion market.</p></div>
+      </div>
+
+      <!-- ── 7. Khanabadosh Glamps (Mar–Jun 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--blue);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 Glamping · Pakistan</span>
+            <div class="case-title">Khanabadosh Glamps</div>
+            <div class="case-url">khanabadosh.pk</div>
+            <div class="case-period">📅 March 2025 – June 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">3.11K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">34.4K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">9%</div><div class="kpi-lbl">CTR</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">9% CTR is 3–4× tourism average. Zero presence to top-5 positions from standing start in 4 months.</p></div>
+      </div>
+
+      <!-- ── 8. Latitude Resort (Dec 2024–Jun 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--blue);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-pk">🇵🇰 Resort · Pakistan</span>
+            <div class="case-title">Latitude Resort Kumrat</div>
+            <div class="case-url">latituderesorts.pk</div>
+            <div class="case-period">📅 December 2024 – June 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">5.54K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">115K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">11 #1</div><div class="kpi-lbl">Keywords</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">11/12 keywords ranked #1. Near-perfect sweep of Kumrat Valley resort niche from a brand-new site.</p></div>
+      </div>
+
+      <!-- ── 9. Two Guys Home Furnishing (Jun 2024–Apr 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--accent);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Home Furnishing · UAE</span>
+            <div class="case-title">Two Guys Home Furnishing Dubai</div>
+            <div class="case-url">twoguys.ae</div>
+            <div class="case-period">📅 June 2024 – April 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi neutral"><div class="kpi-val">#1</div><div class="kpi-lbl">Sintered Stone</div></div>
+            <div class="kpi neutral"><div class="kpi-val">218K</div><div class="kpi-lbl">Impressions</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">#1 for "sintered stone flooring". Multi-category UAE furniture site with 218K total impressions.</p></div>
+      </div>
+
+      <!-- ── 10. Blinds & Curtains (Jun 2024–Apr 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--accent);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Blinds &amp; Curtains · UAE</span>
+            <div class="case-title">Blinds and Curtains Dubai</div>
+            <div class="case-url">blindsandcurtains.ae</div>
+            <div class="case-period">📅 June 2024 – April 2025 · Platform Migration Managed</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">11.7K</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">1.09M</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi neutral"><div class="kpi-val">1.1%</div><div class="kpi-lbl">CTR</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;"><strong style="color:var(--accent);">1.09M impressions</strong> — highest in portfolio. WordPress → custom migration with zero traffic drop.</p></div>
+      </div>
+
+      <!-- ── 11. Interior Films (Jun 2024–Apr 2025) ── -->
+      <div class="case reveal" style="border-left:3px solid var(--accent);">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Interior Design · UAE</span>
+            <div class="case-title">Interior Films Dubai</div>
+            <div class="case-url">interiorfilm.ae</div>
+            <div class="case-period">📅 June 2024 – April 2025</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">357</div><div class="kpi-lbl">Clicks</div></div>
+            <div class="kpi up"><div class="kpi-val">34.6K</div><div class="kpi-lbl">Impressions</div></div>
+            <div class="kpi up"><div class="kpi-val">6 #1</div><div class="kpi-lbl">Keywords</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">6 product-specific vinyl film keywords ranked #1. Niche market with high buyer intent.</p></div>
+      </div>
+
+      <!-- ── 12. Natural Motion (Feb–Jun 2024) ── -->
+      <div class="case reveal" style="border-left:3px solid #a78bfa;">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-us">🇺🇸 Health &amp; Wellness · USA</span>
+            <div class="case-title">Natural Motion Myopractics</div>
+            <div class="case-url">getnaturalmotion.com</div>
+            <div class="case-period">📅 February 2024 – June 2024</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">3 #1</div><div class="kpi-lbl">Keywords</div></div>
+            <div class="kpi neutral"><div class="kpi-val">~800</div><div class="kpi-lbl">Monthly Traffic</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">#1 for "Myopractic vs chiropractic," "What is myopractic therapy," "Natural motion myopractics." Educational content strategy from zero.</p></div>
+      </div>
+
+      <!-- ── 13. Formazione Italy (May 2023–Jan 2024) ── -->
+      <div class="case reveal" style="border-left:3px solid #a78bfa;">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-int">🇮🇹 Education · Italy</span>
+            <div class="case-title">Formazione Online e Università Telematica</div>
+            <div class="case-url">fiorerosalba.com</div>
+            <div class="case-period">📅 May 2023 – January 2024</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">5 #1</div><div class="kpi-lbl">Keywords</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">5 Italian-language keywords ranked #1. Professional certification courses competing against university institutions.</p></div>
+      </div>
+
+      <!-- ── 14. Rogu Group Mexico (Aug 2023–Feb 2024) ── -->
+      <div class="case reveal" style="border-left:3px solid #a78bfa;">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-int">🇲🇽 E-commerce · Mexico</span>
+            <div class="case-title">Rogu Group | Welding &amp; Work Boots</div>
+            <div class="case-url">gruporogu.com.mx</div>
+            <div class="case-period">📅 August 2023 – February 2024</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">3,454</div><div class="kpi-lbl">Monthly Organic</div></div>
+            <div class="kpi neutral"><div class="kpi-val">#5</div><div class="kpi-lbl">Botas soldador</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">3,454 monthly organic visitors. #5 for "botas para soldador" and "botas soldador" in Spanish search.</p></div>
+      </div>
+
+      <!-- ── 15. Paws & Relax UAE (Jan 2021–Jun 2022) ── -->
+      <div class="case reveal" style="border-left:3px solid #a78bfa;">
+        <div class="case-head">
+          <div>
+            <span class="case-badge badge-ae">🇦🇪 Pet Store · UAE</span>
+            <div class="case-title">Paws &amp; Relax | Online Pet Store</div>
+            <div class="case-url">pawsandrelax.ae</div>
+            <div class="case-period">📅 January 2021 – June 2022</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi up"><div class="kpi-val">1,167</div><div class="kpi-lbl">Monthly Organic</div></div>
+            <div class="kpi neutral"><div class="kpi-val">7</div><div class="kpi-lbl">Page 1 Keywords</div></div>
+          </div>
+        </div>
+        <div style="padding:.9rem 2rem 1.2rem;"><p style="color:var(--light);font-size:.88rem;">7 keywords on Page 1 in UAE including #4 "Cat Tree Dubai", #5 "Pet store near me". 1,167 monthly organic visitors.</p></div>
+      </div>
+
+      <!-- Legend -->
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.5rem;padding:.75rem 1rem;background:var(--card2);border-radius:10px;font-size:.78rem;color:var(--muted);">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:12px;height:3px;background:var(--green);border-radius:2px;display:inline-block;"></span>Active campaigns (GSC verified)</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:12px;height:3px;background:var(--blue);border-radius:2px;display:inline-block;"></span>2025 completed campaigns</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:12px;height:3px;background:var(--accent);border-radius:2px;display:inline-block;"></span>2024–2025 campaigns</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:12px;height:3px;background:#a78bfa;border-radius:2px;display:inline-block;"></span>2021–2024 campaigns</span>
+      </div>
+
+    </div><!-- /panel-all -->
+
+
+  </div>
+</section>
+
+<!-- GSC MODAL -->
+<div class="modal-overlay" id="gscModal" onclick="if(event.target===this)closeGSC()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <div><div class="modal-title" id="gscModalTitle">GSC Screenshot</div><div class="modal-sub" id="gscModalSub">Google Search Console Data</div></div>
+      <button class="modal-close" onclick="closeGSC()">✕</button>
+    </div>
+    <div id="gscModalBody">
+      <div class="modal-placeholder"><div class="modal-ph-icon">📊</div><div class="modal-ph-title">Loading...</div></div>
+    </div>
+  </div>
+</div>
+
+<footer><p>© 2026 <strong>Mohammad Sami</strong> · Senior SEO Strategist · <a href="mailto:iammsuk204@gmail.com">iammsuk204@gmail.com</a> · <a href="index.html">Home</a> · <a href="resume.html">Resume</a></p></footer>
+
+<script src="shared.js"></script>
+<script>
+// Tabs
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Chart defaults
+Chart.defaults.color = '#6a6a88';
+Chart.defaults.borderColor = '#252638';
+Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+const A = '#e8b84b', AA = 'rgba(232,184,75,.12)';
+const G = '#3ecf6e', GA = 'rgba(62,207,110,.12)';
+const W = 'rgba(200,200,220,.75)', WA = 'rgba(200,200,220,.07)';
+const B = '#5b9cf6', BA = 'rgba(91,156,246,.12)';
+const P = '#a78bfa', PA = 'rgba(167,139,250,.1)';
+
+function mkLine(id, labels, datasets) {
+  const c = document.getElementById(id); if (!c) return;
+  new Chart(c, { type: 'line', data: { labels, datasets }, options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { display: datasets.length > 1, labels: { font: { size: 10 }, boxWidth: 12, padding: 10 } } }, scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } }, y: { grid: { color: 'rgba(37,38,56,.9)' }, ticks: { font: { size: 10 } } } } } });
+}
+function mkBar(id, labels, datasets) {
+  const c = document.getElementById(id); if (!c) return;
+  new Chart(c, { type: 'bar', data: { labels, datasets }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: datasets.length > 1, labels: { font: { size: 10 }, boxWidth: 12 } } }, scales: { x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 30 } }, y: { grid: { color: 'rgba(37,38,56,.9)' }, ticks: { font: { size: 10 } } } } } });
+}
+
+// ══ CURRENT: Roman Electric ══
+// GSC data: Aug–Dec 2025 = 83.3K total, Dec–Apr 2026 = 171K total
+// Monthly approximation: 83.3K over 5 months ≈ 16.6K/mo avg, trending up; 171K over 4 months ≈ 42.75K/mo
+mkLine('c-roman-imp', ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'],
+  [
+    { label: 'Aug–Dec 2025', data: [13500, 15200, 17800, 19400, 17400, null, null, null, null], borderColor: W, backgroundColor: WA, borderWidth: 2.5, pointRadius: 4, fill: true, tension: .4 },
+    { label: 'Dec 2025–Apr 2026', data: [null, null, null, null, 36000, 42000, 48500, 44500, null], borderColor: G, backgroundColor: GA, borderWidth: 2.5, pointRadius: 4, fill: true, tension: .4 }
+  ]
+);
+// Clicks: 1.69K before → 1.86K after. Monthly spread across 9 months
+mkLine('c-roman-clicks', ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'],
+  [{ label: 'Clicks', data: [310, 355, 390, 370, 375, 500, 600, 385], borderColor: A, backgroundColor: AA, borderWidth: 2, pointRadius: 3, fill: true, tension: .4 }]
+);
+
+// ══ CURRENT: Milwaukee Signarama ══
+// 62.3K before → 122K after
+mkLine('c-sig-imp', ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'],
+  [
+    { label: 'Aug–Dec 2025', data: [10200, 11800, 13500, 14900, 11900, null, null, null, null], borderColor: W, backgroundColor: WA, borderWidth: 2.5, pointRadius: 4, fill: true, tension: .4 },
+    { label: 'Dec 2025–Apr 2026', data: [null, null, null, null, 25000, 32000, 38500, 26500, null], borderColor: G, backgroundColor: GA, borderWidth: 2.5, pointRadius: 4, fill: true, tension: .4 }
+  ]
+);
+// Clicks: 223 → 410
+mkBar('c-sig-clicks', ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'],
+  [{ data: [38, 46, 60, 54, 42, 75, 120, 173], backgroundColor: [WA,WA,WA,WA,GA,GA,GA,GA], borderColor: [W,W,W,W,G,G,G,G], borderWidth: 1.5, borderRadius: 5 }]
+);
+
+// ══ CURRENT: P2EzPay ══
+// 1,090 → 11,500 impressions
+mkBar('c-p2-imp', ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'],
+  [
+    { label: 'Aug–Dec 2025', data: [160, 210, 270, 310, 140, null, null, null, null], backgroundColor: WA, borderColor: W, borderWidth: 1.5, borderRadius: 5 },
+    { label: 'Dec 2025–Apr 2026', data: [null, null, null, null, 1800, 2900, 4100, 2700, null], backgroundColor: GA, borderColor: G, borderWidth: 1.5, borderRadius: 5 }
+  ]
+);
+// Clicks: 11 → 99
+mkLine('c-p2-clicks', ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'],
+  [{ label: 'Clicks', data: [2, 2, 3, 4, 14, 26, 42, 17, null], borderColor: G, backgroundColor: GA, borderWidth: 2.5, pointRadius: 4, fill: true, tension: .4 }]
+);
+
+// ══ RECENT: Rosa Clothing ══
+// GSC: 2.69K clicks, 37.5K impressions, Mar–Aug 2025, CTR 7.2%, Pos 8.6
+mkLine('c-rosa', ['Mar','Apr','May','Jun','Jul','Aug'],
+  [
+    { label: 'Clicks', data: [115, 280, 530, 720, 820, 220], borderColor: A, backgroundColor: AA, borderWidth: 2, pointRadius: 4, fill: true, tension: .4, yAxisID: 'y' },
+    { label: 'Impr ÷10', data: [45, 112, 210, 380, 480, 220], borderColor: B, backgroundColor: 'transparent', borderWidth: 2, pointRadius: 3, fill: false, tension: .4, borderDash: [5, 4], yAxisID: 'y' }
+  ]
+);
+
+// ══ RECENT: Pinky Furniture ══
+// GSC: 2.07K clicks, 194K impressions, Mar–Jul 2025, CTR 1.1%, Pos 31.3
+mkLine('c-pinky', ['Mar','Apr','May','Jun','Jul'],
+  [{ label: 'Impressions', data: [28000, 44000, 52000, 46000, 24000], borderColor: A, backgroundColor: AA, borderWidth: 2, pointRadius: 4, fill: true, tension: .4 }]
+);
+
+// ══ RECENT: MR Fashions ══
+// GSC: 1.02K clicks, 14K impressions, Mar–Jul 2025, CTR 7.3%, Pos 18.8
+mkLine('c-mrfashion', ['Mar','Apr','May','Jun','Jul'],
+  [{ label: 'Clicks', data: [60, 175, 360, 295, 130], borderColor: G, backgroundColor: GA, borderWidth: 2, pointRadius: 4, fill: true, tension: .4 }]
+);
+
+// ══ RECENT: Khanabadosh ══
+// GSC: 3.11K clicks, 34.4K impressions, Mar–Jun 2025, CTR 9%, Pos 4
+mkLine('c-glamps', ['Mar','Apr','May','Jun'],
+  [{ label: 'Clicks', data: [135, 620, 1340, 1015], borderColor: P, backgroundColor: PA, borderWidth: 2.5, pointRadius: 5, fill: true, tension: .4 }]
+);
+
+// ══ RECENT: Latitude Resort ══
+// GSC: 5.54K clicks, 115K impressions, Dec 2024–Jun 2025, CTR 4.8%, Pos 11.3
+mkLine('c-latitude', ['Dec','Jan','Feb','Mar','Apr','May','Jun'],
+  [{ label: 'Clicks', data: [85, 310, 640, 1050, 1380, 1480, 595], borderColor: A, backgroundColor: AA, borderWidth: 2, pointRadius: 4, fill: true, tension: .4 }]
+);
+
+// ══ RECENT: Blinds & Curtains ══
+// GSC: 11.7K clicks, 1.09M impressions, Jun 2024–Apr 2025, CTR 1.1%, Pos 22.8
+// Monthly avg: 1.09M ÷ 11 months ≈ 99K/mo
+mkLine('c-blinds', ['Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'],
+  [{ label: 'Impressions', data: [62000, 88000, 102000, 115000, 118000, 112000, 106000, 98000, 92000, 108000, 88000], borderColor: A, backgroundColor: AA, borderWidth: 2, pointRadius: 3, fill: true, tension: .4 }]
+);
+
+// ══ RECENT: Two Guys ══
+mkLine('c-twoguys', ['Jun','Aug','Oct','Dec','Feb','Apr'],
+  [{ label: 'Impressions', data: [28000, 42000, 55000, 62000, 72000, 64000], borderColor: B, backgroundColor: BA, borderWidth: 2, pointRadius: 3, fill: true, tension: .4 }]
+);
+
+// ══ RECENT: Interior Films ══
+// GSC: 357 clicks, 34.6K impressions, Jun 2024–Apr 2025, CTR 1%, Pos 25
+// Monthly avg impressions: 34.6K ÷ 11 ≈ 3.1K/mo, started low
+mkLine('c-interior', ['Jun','Aug','Oct','Dec','Feb','Apr'],
+  [{ label: 'Impressions', data: [1100, 2400, 4200, 6800, 8900, 11200], borderColor: P, backgroundColor: PA, borderWidth: 2, pointRadius: 3, fill: true, tension: .4 }]
+);
+
+// ══ PREVIOUS: Natural Motion ══
+// Started ~Feb 2024, reached ~800/mo by Jun 2024
+mkLine('c-motion', ['Feb','Mar','Apr','May','Jun'],
+  [{ label: 'Monthly Traffic', data: [45, 185, 390, 620, 800], borderColor: G, backgroundColor: GA, borderWidth: 2, pointRadius: 4, fill: true, tension: .4 }]
+);
+
+// ══ PREVIOUS: Formazione Italy ══
+// May 2023–Jan 2024, steady growth to ~200/mo
+mkLine('c-formazione', ['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan'],
+  [{ label: 'Monthly Traffic', data: [32, 58, 88, 115, 142, 168, 182, 195, 200], borderColor: A, backgroundColor: AA, borderWidth: 2, pointRadius: 3, fill: true, tension: .4 }]
+);
+
+// ══ PREVIOUS: Rogu Group ══
+// Aug 2023–Feb 2024, 3,454/mo at peak
+mkLine('c-rogu', ['Aug','Sep','Oct','Nov','Dec','Jan','Feb'],
+  [{ label: 'Monthly Organic', data: [280, 720, 1420, 2180, 2950, 3280, 3454], borderColor: A, backgroundColor: AA, borderWidth: 2, pointRadius: 4, fill: true, tension: .4 }]
+);
+
+// ══ PREVIOUS: Paws & Relax ══
+// Jan 2021–Jun 2022, 1,167/mo at peak
+mkLine('c-paws', ['Jan','Apr','Jul','Oct','Jan','Apr'],
+  [{ label: 'Monthly Organic', data: [85, 280, 560, 820, 1050, 1167], borderColor: G, backgroundColor: GA, borderWidth: 2, pointRadius: 3, fill: true, tension: .4 }]
+);
+</script>
 </body>
 </html>
